@@ -134,46 +134,4 @@ public class App {
             throw new RuntimeException("Wrong encoding! Need: UTF-8.", e);
         }
     }
-
-    /*public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        System.out.println(DBase.getBalance(1, "92938475928319238475"));
-        //System.out.println(DBase.putMoney(1, "92938475928319238475", 23499));
-        //System.out.println(DBase.takeMoney(1, "92938475928319238475", 15499));
-    }*/
-
-    /*public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(svPort), 0);
-        server.createContext("/api/hello", (exchange -> {
-            Map<String, List<String>> params = splitQuery(exchange.getRequestURI().getRawQuery());
-            String noNameText = "Anonymous";
-            String name = params.getOrDefault("name", List.of(noNameText)).stream().findFirst().orElse(noNameText);
-            String respText = String.format("Hello %s!", name);
-            exchange.sendResponseHeaders(200, respText.getBytes().length);
-            OutputStream output = exchange.getResponseBody();
-            output.write(respText.getBytes());
-            output.flush();
-            exchange.close();
-        }));
-
-        server.start();
-    }
-
-    public static Map<String, List<String>> splitQuery (String query) {
-        if (query == null || "".equals(query)) {
-            return Collections.emptyMap();
-        }
-
-        return Pattern.compile("&").splitAsStream(query)
-                .map(s -> Arrays.copyOf(s.split("="), 2))
-                .collect(groupingBy(s -> decode(s[0]), mapping(s -> decode(s[1]), toList())));
-
-    }
-
-    private static String decode (final String encoded) {
-        try {
-            return encoded == null ? null : URLDecoder.decode(encoded, "UTF-8");
-        } catch (final UnsupportedEncodingException e) {
-            throw new RuntimeException("Кодировка содержимого не соответствует требуемой: UTF-8.", e);
-        }
-    }*/
 }
